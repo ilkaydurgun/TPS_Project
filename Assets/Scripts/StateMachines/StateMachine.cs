@@ -7,7 +7,7 @@ public abstract class StateMachine : MonoBehaviour
  
 
    
-    public void switchState(State newState)
+    public void SwitchState(State newState)
     {
         currentState?.Exit();
         currentState = newState;
