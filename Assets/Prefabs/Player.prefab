@@ -2047,6 +2047,7 @@ GameObject:
   - component: {fileID: 14660361285968557}
   - component: {fileID: 3390302072294174287}
   - component: {fileID: 8954016750290227423}
+  - component: {fileID: 4219668205958161868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2098,6 +2099,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffbcb5f6bd56f1d4faaa6e767b564103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputReader
+--- !u!95 &4219668205958161868
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191639413089301353}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac1a421a2b8b7ef4c8ce4e51591362c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7211350128795455892
 GameObject:
   m_ObjectHideFlags: 0
