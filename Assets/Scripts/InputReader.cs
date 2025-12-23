@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
 {
+    public Vector2 MovmentValue { get; private set; }
     public event Action DodgeEvent;
     public event Action JumpEvent;
+
     private Controls controls;
 
     void Start()
@@ -31,5 +33,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
          if (!context.performed){ return; }
         DodgeEvent?.Invoke();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        MovmentValue = context.ReadValue<Vector2>();
     }
 }
