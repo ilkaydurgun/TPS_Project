@@ -12,18 +12,24 @@ public class PlayerTestState : PlayerBaseState
     }
     public override void Tick(float deltaTime)
     {
-        Vector3 movment = new Vector3();
+        Vector3 movement = new Vector3();
 
-        movment.x = stateMachine.InputReader.MovmentValue.x ;
-        movment.y = 0f;
-        movment.z = stateMachine.InputReader.MovmentValue.y ;
+        movement.x = stateMachine.InputReader.MovmentValue.x ;
+        movement.y = 0f;
+        movement.z = stateMachine.InputReader.MovmentValue.y ;
 
       
-        stateMachine.Controller.Move(movment * stateMachine.FreeLookMovementSpeed * deltaTime   );
+        stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime   );
 
-        if (movment == Vector3.zero) { return; }
+        if (stateMachine.InputReader.MovmentValue == Vector2.zero) { 
+          
+          stateMachine.Animator.SetFloat("FreeLookSpeed", 0, 0.1f, deltaTime);
+          return;
+          
+       }
+        stateMachine.Animator.SetFloat("FreeLookSpeed", 1, 0.1f, deltaTime);
 
-        stateMachine.transform.rotation = Quaternion.LookRotation(movment);
+        stateMachine.transform.rotation = Quaternion.LookRotation(movement);
         
       Debug.Log( stateMachine.InputReader.MovmentValue);
         

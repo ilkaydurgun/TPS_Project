@@ -2089,6 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStateMachine
   <InputReader>k__BackingField: {fileID: 8954016750290227423}
   <Controller>k__BackingField: {fileID: 4419938971251575507}
+  <Animator>k__BackingField: {fileID: 4219668205958161868}
   <FreeLookMovementSpeed>k__BackingField: 6
 --- !u!114 &8954016750290227423
 MonoBehaviour:
