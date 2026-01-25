@@ -4,6 +4,8 @@ using UnityEngine;
 public class Targeter : MonoBehaviour
 {
     public List<Target> targets=new List<Target>();
+    
+    public Target currentTarget;    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +22,17 @@ public class Targeter : MonoBehaviour
         {
             targets.Remove(target);
         }
+    }
+    public bool SelectTarget()
+    {
+        if (targets.Count == 0) return false;
+
+        currentTarget = targets[0];
+        return true;
+    }
+    public void Cancel()
+    {
+        currentTarget = null;
     }
 
 }
