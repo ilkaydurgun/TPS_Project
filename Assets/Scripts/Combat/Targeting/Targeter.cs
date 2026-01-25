@@ -9,19 +9,20 @@ public class Targeter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       other.TryGetComponent<Target>(out Target target);
-        if (target != null && !targets.Contains(target))
+       if (!other.TryGetComponent<Target>(out Target target))
         {
-            targets.Add(target);
+          return; 
         }
+         targets.Add(target);
     }
     private void OnTriggerExit(Collider other)
     {
-     other.TryGetComponent<Target>(out Target target);
-        if (target != null && targets.Contains(target))
+     if(!other.TryGetComponent<Target>(out Target target))
         {
-            targets.Remove(target);
+            return;
         }
+          targets.Remove(target);
+        
     }
     public bool SelectTarget()
     {

@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class PlayerFreeLookState : PlayerBaseState
 {
-
+    private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
     private readonly int FreeLookSpeedHash   = Animator.StringToHash("FreeLookSpeed");
+    
+  
+    
 
     private const float AnimatorDampTime= 0.1f;
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) {}
     public override void Enter()
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
+        stateMachine.Animator.Play(FreeLookBlendTreeHash);
+        @Debug.Log("Entered Free Look State");
     }
     public override void Tick(float deltaTime)
     {
