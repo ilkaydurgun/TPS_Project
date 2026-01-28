@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerTargetingState : PlayerBaseState
@@ -14,9 +15,21 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        if(stateMachine.Targeter.currentTarget==null)
+        {
+            stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+            return;
+        }
+
+        Vector3 movment =CalculateMovement();
+        Move(movment * stateMachine.TargetingMovementSpeed, deltaTime);
+
+        FaceTarget();
+
         Debug.Log(stateMachine.Targeter.currentTarget.name);
        
     }
+
 
     public override void Exit()
     {
@@ -27,5 +40,16 @@ public class PlayerTargetingState : PlayerBaseState
     {
         stateMachine.Targeter.Cancel();
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
-    }   
+    }  
+
+    private Vector3 CalculateMovement()
+    {
+        Vector3 movment = new Vector3();
+
+        movment += stateMachine.transform.right * stateMachine.InputReader.MovmentValue.x;
+        movment += stateMachine.transform.forward * stateMachine.InputReader.MovmentValue.y;
+            
+        return movment;
+    }
+
 }
